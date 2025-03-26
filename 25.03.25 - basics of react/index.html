@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <h1>React Fundamentals</h1> -->
+
+    <div id="main">
+    </div>
+
+    <!-- <script>
+        const heading = document.createElement('h1');
+        heading.innerText = "heading from JS"
+        const mainDiv = document.getElementById('main')
+        mainDiv.appendChild(heading)
+    </script> -->
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script> //Object <- React element <- React.createElement(type, props (attributes), children)
+        // const xyz = React.createElement()
+        // console.log(xyz);
+
+        // const heading = React.createElement('h3', {}, "This is h3 tag")
+        // console.log(heading); // react element
+
+        // const root = ReactDOM.createRoot(document.getElementById('main'))
+        // // console.log(root);
+        // root.render(heading)
+
+
+        // ===================================
+        const heading1 = React.createElement('h1', 
+            {
+                id : 1,
+                className : 'sai'
+            }, 
+            'This is h1 tag.'
+        )
+        const heading2 = React.createElement('h3', 
+            {
+                id : 2
+            }, 
+            'This is h3 tag.'
+        )
+
+        const div = React.createElement('div', {}, [heading1, heading2])
+
+        const root = ReactDOM.createRoot(document.getElementById('main')) // it provides the starting point
+        // root.render(heading1)
+        // root.render(heading2)
+        root.render(div)
+
+
+        // It is the core concept to know how react works behind the scene
+        // It is not a good way to create react project
+        // we can create react project through, create-react-app or using bundlers (like vite, parcel)
+    </script>
+
+</body>
+</html>
+
+<!-- create-react-app => public/index.html (entry point) -->
