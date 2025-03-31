@@ -27,14 +27,14 @@ function App() {
 
       <Greet /> */}
 
-      <Product title={shoeData[0].title} price={shoeData[0].price} />
-      <Product title={shoeData[1].title} price={shoeData[1].price} />
+      {/* <Product title={shoeData[0].title} price={shoeData[0].price} />
+      <Product title={shoeData[1].title} price={shoeData[1].price} /> */}
 
       {
         // shoeData.map((shoe) => {
         //   return <Product title={shoe.title} price={shoe.price} description={shoe.description} />
         // })
-        
+
         shoeData.map((shoe, idx) => <Product title={shoe.title} price={shoe.price} description={shoe.description} key={idx}/>)
       }
     </>
