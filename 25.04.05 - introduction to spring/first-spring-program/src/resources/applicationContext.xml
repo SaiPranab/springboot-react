@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <bean class="model.Student" id="stdObj">
+
+    </bean>
+</beans>
+
+<!-- 
+    Spring Container is the Core compontn or heart of Spring framework
+    - Spring container is just like the JVM , which is used to execute java programs
+    - Spring container is just like Servlet contanier which executes the Servlet pages
+
+    - Responsebilities
+     Instantiate the Bean Object
+     Configure bean object
+     initialize the bean Object
+     manage bean life cycle
+     destroy bean object
+     dependency injection
+     resource management etc
+
+    Types of SpringContainer
+     BeanFactory (old)  is deprecated
+     ApplicationContext (New)
+
+     What is configurations
+     - Configurations refers tot the settings or instructions provide to the spring conainer
+        to define & manage the bean objects
+        - There are lot of connfigurations in spring
+            bean instantiation
+            dependency injection
+            bean life cycle
+            component scanning
+            database configurations
+            security configurations
+            properties file
+
+    We can provide configurations in different ways
+        - XML files
+        - Java classes
+        - Annotations
+        - Property files
+        - environment variables
+        - profiles etc
+      
+    bean 
+    - bean are the simple objects which have some configuration & a life cycle , managed by Spring container
+
+      -->
