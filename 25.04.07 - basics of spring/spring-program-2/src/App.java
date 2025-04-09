@@ -20,8 +20,14 @@ public class App {
         // student2.display();
         // System.out.println(student2);
 
-        ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
-        Student student3 = (Student) context.getBean("getStudent");
+        ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class); // spring container is now started
+        // Student student3 = (Student) context.getBean("getStudent");
+        Student student3 = (Student) context.getBean("student");
         student3.display();
+        System.out.println(student3);
+
+        Student student4 = (Student) context.getBean("student");
+        student4.display();
+        System.out.println(student4);
     }
 }
