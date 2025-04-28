@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,5 +28,10 @@ public class StudentController {
     @GetMapping("/students")
     public ResponseEntity<List<Student>> getStudents() {
         return new ResponseEntity<>(service.getStudentsList(), HttpStatus.OK);
+    }
+
+    @GetMapping("/student/{id}")
+    public ResponseEntity<Student> getStudentById(@PathVariable String id){
+        return new ResponseEntity<>(service.getStudentById(id), HttpStatus.OK);
     }
 }

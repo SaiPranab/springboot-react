@@ -6,25 +6,27 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 import com.example.rest_basic.model.Student;
+import com.example.rest_basic.repository.StudentRepository;
+
+import lombok.RequiredArgsConstructor;
 
 @Service
+@RequiredArgsConstructor
 public class StudentService {
-    private List<Student> students;
-
-    public StudentService(List<Student> students) {
-        this.students = students;
-    }
+    private final StudentRepository repository;
 
     public Student createStudent(Student student) {
         student.setId(UUID.randomUUID().toString());
-        students.add(student);
-        System.out.println("student added");
-        System.out.println(student);
-        return student;
+        System.out.println("Student added to the db");
+        return repository.save(student); // insert & update
     }
 
     public List<Student> getStudentsList() {
-        System.out.println("students extracted");
-        return students;
+        System.out.println("Students extracting from database");
+        return repository.findAll(); // extract all rows
+    }
+
+    public Student getStudentById(String studentId) {
+       return repository.findById(studentId).orElse(null); // it extract a row where the pk value matches
     }
 }
