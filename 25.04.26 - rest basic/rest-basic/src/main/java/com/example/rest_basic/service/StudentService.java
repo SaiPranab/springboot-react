@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import com.example.rest_basic.exception.StudentNotFoundException;
 import com.example.rest_basic.model.Student;
 import com.example.rest_basic.repository.StudentRepository;
 
@@ -27,6 +28,21 @@ public class StudentService {
     }
 
     public Student getStudentById(String studentId) {
-       return repository.findById(studentId).orElse(null); // it extract a row where the pk value matches
+       return repository.findById(studentId).orElseThrow(() -> new StudentNotFoundException("student not found with id " + studentId)); 
+    }
+
+    public Student updateStudent(String id, Student newStudent) {
+        if(!repository.existsById(id)){
+            throw new StudentNotFoundException("Student not found with id " + id);
+        }
+
+        newStudent.setId(id);
+        return repository.save(newStudent); // update
+    }
+
+    public Student deleteStudentById(String id) {
+        Student student = getStudentById(id);
+        repository.delete(student);
+        return student;
     }
 }
